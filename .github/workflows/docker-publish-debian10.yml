@@ -1,18 +1,18 @@
-name: Docker Publisch Centos8 CI
+name: Docker Publisch Debian10 CI
 
 on:
   schedule:
     - cron: '42 11 * * *'
   push:
-    branches: [ "main" ]
+    branches: [ "latest" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "latest" ]
 
 env:
   REGISTRY: docker.io 
-  IMAGE_NAME: bwinfosec/centos8-systemd
+  IMAGE_NAME: bwinfosec/debian10-systemd
 
 
 jobs:
@@ -71,7 +71,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: ./centos8/Dockerfile
+          file: ./debian10/Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
