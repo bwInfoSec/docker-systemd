@@ -2,7 +2,7 @@ name: Docker Publisch Ubuntu2204 CI
 
 on:
   schedule:
-    - cron: '42 11 * * *'
+    - cron: '59 23 * * 0'
   push:
     branches: [ "latest" ]
     # Publish semver tags as releases.
